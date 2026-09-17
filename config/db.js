@@ -18,7 +18,7 @@ require("dotenv").config();
 
 // Define MongoDB URIs for your two databases
 const mongoUri1 = process.env.MongoUrl; // Replace with your first MongoDB connection string
-const mongoUri2 = "mongodb+srv://vaishnavidhobale5:vaishnavi@cluster0.gdkapdl.mongodb.net/DefencePostDataHub?retryWrites=true&w=majority"; // Replace with your second MongoDB connection string
+const mongoUri2 = "mongodb+srv://vaishnavidhobale5:vaishnavi@cluster0.tc57rcj.mongodb.net/DefencePost?retryWrites=true&w=majority"; // Replace with your second MongoDB connection string
 
 // Create separate connections for each database
 const connection1 = mongoose.createConnection(mongoUri1, {
