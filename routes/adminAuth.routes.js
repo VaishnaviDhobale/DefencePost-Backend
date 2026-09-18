@@ -26,6 +26,7 @@ adminRoute.post("/add", adminAuth, (req, res) => {
       await admin.save();
       res.status(200).send({ msg: "Admin Added Successfully!!" });
     });
+
   } catch (err) {
     res.status(400).send({err});
   }
@@ -36,7 +37,9 @@ adminRoute.post("/add", adminAuth, (req, res) => {
 adminRoute.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log(email, password);
     const admin = await AdminModel.find({ email });
+    console.log(admin[0].password);
     bcrypt.compare(password, admin[0].password, (err, pass) => {
       if (pass) {
         const token = jwt.sign({test : "EZ1"}, "EZ")
@@ -45,6 +48,7 @@ adminRoute.post("/login", async (req, res) => {
         res.status(200).send({ err: "Wrong Details" });
       }
     });
+
   } catch (err) {
     res.status(400).send({err});
   }
