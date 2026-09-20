@@ -13,7 +13,10 @@ const paymentRouter = express.Router();
 // });
 paymentRouter.post("/checkout", async (req, res) => {
   const { amount } = req.body;
-  // console.log( typeof +amount)
+  console.log("CHECKOUT BODY:", req.body);
+  // console.log("AMOUNT:", req.body.amount);
+  // console.log("AMOUNT TYPE:", typeof req.body.amount);
+  console.log( typeof +amount)
   // Verify that the amount is a valid number
   if (typeof +amount !== 'number' || isNaN(amount) || amount <= 0) {
     return res.status(400).json({ msg: "Invalid 'amount' parameter" });
@@ -101,7 +104,7 @@ paymentRouter.post("/check", async (req, res) => {
 });
 
 paymentRouter.get("/getKey", async (req, res) => {
-  // console.log(process.env.razorpay_api_key)
+  console.log(process.env.razorpay_api_key)
     res.status(200).send(process.env.razorpay_api_key);
 });
 
